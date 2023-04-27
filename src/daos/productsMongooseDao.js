@@ -3,7 +3,7 @@ import { productModel } from "../models/productSchema.js";
 export default class ProductsMongooseDao {
 
     async list() {
-        const productsFound = await productModel.find({ category: "notebooks" }).lean();
+        const productsFound = await productModel.find({ category: "videogame" }).lean();
         return productsFound;
     }
 

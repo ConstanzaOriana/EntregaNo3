@@ -5,8 +5,6 @@ import mainRoute from './routes/index.js'
 import { config } from './config/envConfig.js';
 import session from 'express-session';
 import { createHash } from'./utils/bcrypt.js';
-//import compression from 'compression';
-//import helmet from 'helmet';
 import cors from 'cors';
 
 const app = express();
@@ -16,9 +14,6 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 
-// Middlewares
-//app.use(compression());
-//app.use(helmet());
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -30,7 +25,6 @@ app.use(session({
 }));
 
 app.engine('.hbs', engine({ extname: '.hbs', defaultLayout: 'main.hbs' }));
-// app.engine('.hbs', exphbs({ extname: '.hbs', defaultLayout: 'main.hbs' }));
 app.set('view engine', '.hbs');
 
 // Routes
